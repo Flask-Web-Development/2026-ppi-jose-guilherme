@@ -13,6 +13,6 @@ CREATE TABLE post (
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   titulo TEXT NOT NULL,
   artista TEXT NOT NULL,
-  comentario TEXT
+  comentario TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );

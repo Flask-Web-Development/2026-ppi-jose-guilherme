@@ -30,14 +30,20 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    # comando para criar o banco
+    @app.cli.command('init-db')
+    def init_db_command():
+        db.init_db()
+        print('Initialized the database.')
+
     # registrar blueprint de autenticação
     from . import auth
     app.register_blueprint(auth.bp)
 
+    # registrar blueprint do blog
     from . import blog
     app.register_blueprint(blog.bp)
 
     app.add_url_rule('/', endpoint='index')
 
     return app
-

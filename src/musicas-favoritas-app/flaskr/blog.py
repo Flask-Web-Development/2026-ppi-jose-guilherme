@@ -39,7 +39,7 @@ def create():
             db = get_db()
             db.execute(
                 'INSERT INTO post (titulo, artista, comentario, author_id)'
-                ' VALUES (?, ?, ?)',
+                ' VALUES (?, ?, ?, ?)',
                 (titulo, artista, comentario, g.user['id'])
             )
             db.commit()
